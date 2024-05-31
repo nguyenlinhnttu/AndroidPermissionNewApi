@@ -34,14 +34,6 @@ class MainActivity : AppCompatActivity() {
                         Log.d(TAG, "onPermissionsGranted: $permission")
                     }
 
-                    override fun onPermissionDenied(permission: String) {
-                        Log.d(TAG, "onPermissionDenied: $permission")
-                    }
-
-                    override fun onPermissionBlocked(permission: String) {
-                        Log.d(TAG, "onPermissionBlocked: $permission")
-                    }
-
                 })
         }
         val btnMultiple = findViewById<Button>(R.id.btnMultiple)
@@ -56,15 +48,6 @@ class MainActivity : AppCompatActivity() {
                 override fun onPermissionsGranted(permissions: List<String>) {
                     Log.d(TAG, "onPermissionsGranted: $permissions")
                 }
-
-                override fun onPermissionsDenied(permissions: List<String>) {
-                    Log.d(TAG, "onPermissionsDenied: $permissions")
-                }
-
-                override fun onPermissionsBlocked(permissions: List<String>) {
-                    Log.d(TAG, "onPermissionsBlocked: $permissions")
-                }
-
 
             })
         }
