@@ -2,7 +2,10 @@ package com.app.permissions
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
@@ -10,16 +13,6 @@ import androidx.fragment.app.FragmentManager
 /**
  * Created by NguyenLinh on 30,May,2024
  */
-
-fun Context.isPermissionGranted(permission: String): Boolean {
-    return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
-}
-
-fun Context.isPermissionBlocked(permission: String): Boolean {
-    return !ActivityCompat.shouldShowRequestPermissionRationale(this as Activity, permission) &&
-            ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED
-}
-
 object NewPermissions {
 
     //For request single permission
@@ -45,4 +38,32 @@ object NewPermissions {
             .show(fm, "RequestPermissionDialog")
     }
 
+    //Open setting app to manual enable permission
+    fun openSettingPermission(activity: Activity) {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        with(intent) {
+            data = Uri.fromParts("package", activity.packageName, null)
+            addCategory(Intent.CATEGORY_DEFAULT)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+        }
+        activity.startActivity(intent)
+    }
+
+
+    fun isPermissionGranted(context: Context, permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context,
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun isPermissionBlocked(activity: Activity, permission: String): Boolean {
+        return !ActivityCompat.shouldShowRequestPermissionRationale(activity, permission) &&
+                ContextCompat.checkSelfPermission(
+                    activity,
+                    permission
+                ) != PackageManager.PERMISSION_GRANTED
+    }
 }
