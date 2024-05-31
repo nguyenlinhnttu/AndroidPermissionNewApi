@@ -1,5 +1,6 @@
 plugins {
     id ("com.android.library")
+    id ("maven-publish")
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
@@ -36,3 +37,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
