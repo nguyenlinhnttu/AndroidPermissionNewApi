@@ -59,11 +59,16 @@ dependencyResolutionManagement {
 		repositories {
 			mavenCentral()
 			maven { url 'https://jitpack.io' }
+			//for: kts style
+			//maven {
+            		//	url = uri("https://jitpack.io")
+			// }
 		}
 	}
 
 
 ```
+
 Step 2. Add the dependency
 ```
 dependencies {
