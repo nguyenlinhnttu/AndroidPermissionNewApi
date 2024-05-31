@@ -51,6 +51,7 @@ class RequestPermissionDialog : DialogFragment() {
         // Return result of single permission request
         singleLauncher =
             registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+                dismiss()
                 if (isGranted) {
                     singleCallback?.onPermissionGranted(permission)
                 } else {
@@ -60,7 +61,6 @@ class RequestPermissionDialog : DialogFragment() {
                         singleCallback?.onPermissionBlocked(permission)
                     }
                 }
-                dismiss()
             }
 
         //Return result of multiple permission request
@@ -71,12 +71,10 @@ class RequestPermissionDialog : DialogFragment() {
 
                 val blocked = denied.filter { !shouldShowRequestPermissionRationale(it) }
                 val deniedPermissions = denied - blocked
-
+                dismiss()
                 if (granted.isNotEmpty()) multipleCallback?.onPermissionsGranted(granted)
                 if (deniedPermissions.isNotEmpty()) multipleCallback?.onPermissionsDenied(deniedPermissions)
                 if (blocked.isNotEmpty()) multipleCallback?.onPermissionsBlocked(blocked)
-
-                dismiss()
             }
     }
 
