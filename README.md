@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/nguyenlinhnttu/AndroidPermissionNewApi.svg)](https://jitpack.io/#nguyenlinhnttu/AndroidPermissionNewApi)
 > [!NOTE]
 > This is a library that simplifies requesting permissions using the new Android API.<br>
 > By using DialogFragment as an intermediary layer, requesting permissions with this library will not affect the application's lifecycle.<br>
@@ -66,7 +67,7 @@ dependencyResolutionManagement {
 Step 2. Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.nguyenlinhnttu:AndroidPermissionNewApi:Tag'
+	        implementation 'com.github.nguyenlinhnttu:AndroidPermissionNewApi:version'
 	}
 
 ```
