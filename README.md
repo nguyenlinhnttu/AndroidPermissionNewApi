@@ -1,3 +1,4 @@
+# **Android Permission New API**
 [![](https://jitpack.io/v/nguyenlinhnttu/AndroidPermissionNewApi.svg)](https://jitpack.io/#nguyenlinhnttu/AndroidPermissionNewApi)
 > [!NOTE]
 > This is a library that simplifies requesting permissions using the new Android API.<br>
