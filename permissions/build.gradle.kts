@@ -1,7 +1,7 @@
 plugins {
-    id ("com.android.library")
-    id ("maven-publish")
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -28,12 +28,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
     }
 }
 
