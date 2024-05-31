@@ -76,3 +76,13 @@ dependencies {
 	}
 
 ```
+# **Another Method Supported:**
+- Manual open app setting after permission blocked
+```
+NewPermissions.openSettingPermission()
+```
+- Check permission state before request
+ ```
+NewPermissions.isPermissionGranted()
+NewPermissions.isPermissionBlocked()
+ ```
