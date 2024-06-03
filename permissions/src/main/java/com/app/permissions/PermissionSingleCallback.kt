@@ -5,7 +5,7 @@ package com.app.permissions
  */
 interface PermissionSingleCallback {
     //Permission Granted
-    fun onPermissionGranted(permission: String)
+    fun onPermissionGranted(permission: String){}
     //Can request permission again
     fun onPermissionDenied(permission: String){}
     //Should show popup open setting

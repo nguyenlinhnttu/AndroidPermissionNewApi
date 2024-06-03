@@ -5,7 +5,7 @@ package com.app.permissions
  */
 interface PermissionMultiCallback {
     //Permission Granted
-    fun onPermissionsGranted(permissions: List<String>)
+    fun onPermissionsGranted(permissions: List<String>){}
 
     //Can request permission again
     fun onPermissionsDenied(permissions: List<String>) {}
