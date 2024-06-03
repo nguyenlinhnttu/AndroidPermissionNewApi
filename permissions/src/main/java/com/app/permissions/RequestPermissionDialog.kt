@@ -54,11 +54,14 @@ class RequestPermissionDialog : DialogFragment() {
                 dismiss()
                 if (isGranted) {
                     singleCallback?.onPermissionGranted(permission)
+                    singleCallback?.onRequestDone(isGranted = true, false)
                 } else {
                     if (shouldShowRequestPermissionRationale(permission)) {
                         singleCallback?.onPermissionDenied(permission)
+                        singleCallback?.onRequestDone(isGranted = false, false)
                     } else {
                         singleCallback?.onPermissionBlocked(permission)
+                        singleCallback?.onRequestDone(isGranted = false, true)
                     }
                 }
             }
@@ -75,6 +78,7 @@ class RequestPermissionDialog : DialogFragment() {
                 if (granted.isNotEmpty()) multipleCallback?.onPermissionsGranted(granted)
                 if (deniedPermissions.isNotEmpty()) multipleCallback?.onPermissionsDenied(deniedPermissions)
                 if (blocked.isNotEmpty()) multipleCallback?.onPermissionsBlocked(blocked)
+                multipleCallback?.onRequestDone(granted, deniedPermissions, blocked)
             }
     }
 

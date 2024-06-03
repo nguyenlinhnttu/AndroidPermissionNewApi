@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
                         Log.d(TAG, "onPermissionsGranted: $permission")
                     }
 
+                    override fun onRequestDone(isGranted: Boolean, isBlocked: Boolean) {
+                        Log.d(TAG, "onRequestDone: $isGranted - $isBlocked")
+                    }
+
                 })
         }
         val btnMultiple = findViewById<Button>(R.id.btnMultiple)
@@ -47,6 +51,14 @@ class MainActivity : AppCompatActivity() {
                 PermissionMultiCallback {
                 override fun onPermissionsGranted(permissions: List<String>) {
                     Log.d(TAG, "onPermissionsGranted: $permissions")
+                }
+
+                override fun onRequestDone(
+                    granted: List<String>,
+                    denied: List<String>,
+                    blocked: List<String>
+                ) {
+                    Log.d(TAG, "onRequestDone: $granted - $denied -$blocked")
                 }
 
             })

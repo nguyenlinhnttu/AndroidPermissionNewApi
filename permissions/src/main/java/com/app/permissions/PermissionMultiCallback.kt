@@ -6,8 +6,18 @@ package com.app.permissions
 interface PermissionMultiCallback {
     //Permission Granted
     fun onPermissionsGranted(permissions: List<String>)
+
     //Can request permission again
-    fun onPermissionsDenied(permissions: List<String>){}
+    fun onPermissionsDenied(permissions: List<String>) {}
+
     //Should show popup open setting
-    fun onPermissionsBlocked(permissions: List<String>){}
+    fun onPermissionsBlocked(permissions: List<String>) {}
+
+    //For all case
+    fun onRequestDone(
+        granted: List<String> = emptyList(),
+        denied: List<String> = emptyList(),
+        blocked: List<String> = emptyList()
+    ) {
+    }
 }

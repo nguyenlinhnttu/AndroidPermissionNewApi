@@ -10,4 +10,6 @@ interface PermissionSingleCallback {
     fun onPermissionDenied(permission: String){}
     //Should show popup open setting
     fun onPermissionBlocked(permission: String){}
+    //For all case
+    fun onRequestDone(isGranted: Boolean, isBlocked :Boolean){}
 }
