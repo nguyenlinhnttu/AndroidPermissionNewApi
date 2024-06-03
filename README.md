@@ -4,8 +4,8 @@
 > This is a library that simplifies requesting permissions using the new Android API.<br>
 > By using DialogFragment as an intermediary layer, requesting permissions with this library will not affect the application's lifecycle.<br>
 > Ref: https://developer.android.com/training/permissions/requesting
-
-
+# **CallBack functions**
+- All callback functions are **optional**. You can implement any callback you want. That makes your code cleaner.
 # **How to use:**
 - With single permisison like :  **Manifest.permission.CAMERA**
 ```
@@ -24,6 +24,10 @@
 
                     override fun onPermissionBlocked(permission: String) {
                         Log.d(TAG, "onPermissionBlocked: $permission")
+                    }
+
+		   override fun onRequestDone(isGranted: Boolean, isBlocked: Boolean) {
+                        Log.d(TAG, "onRequestDone: $isGranted - $isBlocked")
                     }
 
                 })
@@ -47,6 +51,14 @@
 
                 override fun onPermissionsBlocked(permissions: List<String>) {
                     Log.d(TAG, "onPermissionsBlocked: $permissions")
+                }
+
+		 override fun onRequestDone(
+                    granted: List<String>,
+                    denied: List<String>,
+                    blocked: List<String>
+                ) {
+                    Log.d(TAG, "onRequestDone: $granted - $denied -$blocked")
                 }
 
 
