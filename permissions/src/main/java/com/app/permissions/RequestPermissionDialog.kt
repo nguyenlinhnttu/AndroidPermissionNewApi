@@ -86,6 +86,7 @@ class RequestPermissionDialog : DialogFragment() {
     override fun onResume() {
         super.onResume()
         // Set the dialog style to STYLE_NO_FRAME
+        dialog?.window?.setDimAmount(0f)
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         val params = dialog?.window?.attributes
         params?.width = ViewGroup.LayoutParams.MATCH_PARENT
